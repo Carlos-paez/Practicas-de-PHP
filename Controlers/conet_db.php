@@ -7,17 +7,15 @@ $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $options = [
-    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, // Lanzar excepciones en caso de error
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,       // Devolver resultados como arrays asociativos
-    PDO::ATTR_EMULATE_PREPARES   => false,                  // Usar sentencias preparadas reales
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES   => false,
 ];
 
 try {
      $pdo = new PDO($dsn, $user, $pass, $options);
-     echo "Conexión exitosa a la base de datos.";
+     // No imprimimos nada aquí para evitar errores de cabecera en redirecciones
 } catch (\PDOException $e) {
-     // Puedes mostrar un mensaje de error o registrarlo
-     throw new \PDOException($e->getMessage(), (int)$e->getCode());
-     // O simplemente: echo "Error de conexión: " . $e->getMessage();
+     die("Error de conexión: " . $e->getMessage());
 }
 ?>

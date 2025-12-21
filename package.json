@@ -1,0 +1,17 @@
+{
+  "name": "programas",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "aos": "^2.3.4",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1"
+  }
+}
