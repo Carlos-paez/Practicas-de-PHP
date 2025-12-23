@@ -2,8 +2,8 @@
 $host = 'localhost';
 $db   = 'pruebas';
 $user = 'root';
-$pass = '';
-$charset = 'utf8mb4';
+$pass = ''; 
+$charset = 'utf8';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $options = [
@@ -13,9 +13,10 @@ $options = [
 ];
 
 try {
-     $pdo = new PDO($dsn, $user, $pass, $options);
-     // No imprimimos nada aquí para evitar errores de cabecera en redirecciones
+    $pdo = new PDO($dsn, $user, $pass, $options);
+    echo("<script>console.log('conectado');</script>");
 } catch (\PDOException $e) {
-     die("Error de conexión: " . $e->getMessage());
+    die("Error de conexión: " . $e->getMessage());
+    echo("<script>console.log('no conectado');</script>");
 }
 ?>

@@ -38,6 +38,16 @@
         </form>
     </div>
 
+    <?php if (isset($_GET['error'])): ?>
+    <div style="background: #ff4d4d; color: white; padding: 10px; border-radius: 5px; margin-bottom: 15px; font-size: 14px; text-align: center;">
+        <?php
+            if ($_GET['error'] == "emptyfields") echo "Por favor, rellene todos los campos.";
+            elseif ($_GET['error'] == "invalidcredentials") echo "Usuario o contraseña incorrectos.";
+            elseif ($_GET['error'] == "sqlerror") echo "Error interno del servidor.";
+        ?>
+    </div>
+<?php endif; ?>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
