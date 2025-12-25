@@ -64,6 +64,6 @@
     <div class="message" id="mensajeExito">¡Usuario registrado con éxito!</div>
   </div>
 
-  <script src="scripts/registro.js"></script>
+  <script src="scripts/registro-validate.js"></script>
 </body>
 </html>

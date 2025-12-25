@@ -2,11 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Open Sans", sans-serif;
-  background: linear-gradient(
-    135deg,
-    #483d8b,
-    #2e2a4f
-  ); /* Fondo con degradado */
+  background: linear-gradient(135deg, #483d8b, #2e2a4f);
   color: #ffffff;
   min-height: 100vh;
   display: flex;
