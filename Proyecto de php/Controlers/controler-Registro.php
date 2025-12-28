@@ -1,49 +1,58 @@
 <?php
-require_once 'conet_db.php';
+header('Content-Type: application/json');
+
+include_once 'Conet_db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
-    $nombre    = trim($_POST['nombre']);
-    $apellido  = trim($_POST['apellido']);
-    $email     = trim($_POST['email']);
-    $pass      = $_POST['password'];
-    $confirm   = $_POST['confirmPassword'];
-    $fecha_nac = $_POST['fechaNacimiento'];
-    
-    
+    // Los nombres en $_POST deben coincidir con el atributo 'name' del HTML
+    $nombre     = trim($_POST['nombre'] ?? '');
+    $apellido   = trim($_POST['apellido'] ?? '');
+    $email      = trim($_POST['email'] ?? '');
+    $pass       = $_POST['password'] ?? '';
+    $confirm    = $_POST['confirmPassword'] ?? '';
+    $fecha_nac  = !empty($_POST['fechaNacimiento']) ? $_POST['fechaNacimiento'] : null;
     $user_level = 'user';
 
-    
+    // 1. Validaciones básicas
     if (empty($nombre) || empty($apellido) || empty($email) || empty($pass)) {
-        echo "Todos los campos obligatorios deben ser llenados.";
-        exit();
+        echo json_encode(['status' => 'error', 'message' => 'Todos los campos obligatorios deben ser llenados.']);
+        exit;
+    }
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo json_encode(['status' => 'error', 'message' => 'El formato del correo electrónico no es válido.']);
+        exit;
     }
 
     if ($pass !== $confirm) {
-        echo "Las contraseñas no coinciden.";
-        exit();
+        echo json_encode(['status' => 'error', 'message' => 'Las contraseñas no coinciden.']);
+        exit;
     }
 
     try {
-       
-        $checkEmail = $pdo->prepare("SELECT id FROM Usuarios WHERE email = ?");
+        // 2. Verificar si el email ya existe
+        $checkEmail = $pdo->prepare("SELECT id FROM usuarios WHERE email = ?");
         $checkEmail->execute([$email]);
-        
         if ($checkEmail->fetch()) {
-            echo "El correo ya está registrado.";
-            exit();
+            echo json_encode(['status' => 'error', 'message' => 'El correo ya está registrado.']);
+            exit;
         }
 
-        
-        $sql = "INSERT INTO Usuarios (nombre, apellido, email, fecha_nacimiento, user_level, pass) 
-                VALUES (?, ?, ?, ?, ?, ?)";
-        
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([$nombre, $apellido, $email, $fecha_nac, $user_level, $pass]);
+        // 3. Encriptar contraseña
+        $passHash = password_hash($pass, PASSWORD_DEFAULT);
 
-        echo "success"; 
+        // 4. Insertar usuario
+        $insertQuery = "INSERT INTO usuarios (nombre, apellido, email, fecha_nacimiento, user_level, pass) VALUES (:nombre, :apellido, :email, :fecha_nacimiento, :user_level, :pass)";
+        $stmt = $pdo->prepare($insertQuery);
+        $stmt->execute(['nombre' => $nombre, 'apellido' => $apellido, 'email' => $email, 'fecha_nacimiento' => $fecha_nac, 'user_level' => $user_level, 'pass' => $passHash]);
+
+        echo json_encode(['status' => 'success', 'message' => 'Usuario registrado con éxito.']);
 
     } catch (PDOException $e) {
-        echo "Error en el registro: " . $e->getMessage();
+        error_log("Error en la DB: " . $e->getMessage());
+        echo json_encode(['status' => 'error', 'message' => 'Error en el servidor al guardar datos.']);
     }
+} else {
+    echo json_encode(['status' => 'error', 'message' => 'Método no permitido.']);
 }
+?>
