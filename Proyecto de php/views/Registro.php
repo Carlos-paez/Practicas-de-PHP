@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <h2>Registro de Usuario</h2>
-        <form id="registroForm" action="/../Controlers/controler-Registro.php" method="POST">
+        <form id="registroForm">
             <div class="form-group">
                 <label for="nombre">Nombre *</label>
                 <input type="text" id="nombre" name="nombre" required />
@@ -41,7 +41,7 @@
         <div id="mensajeExito" style="margin-top: 20px; font-weight: bold;"></div>
     </div>
 
-    <script src="registro-validate.js"></script>
+    <script src="../scripts/registro-validate.js"></script>
 </body>
 
 </html>

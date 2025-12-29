@@ -4,14 +4,20 @@ header('Content-Type: application/json');
 include_once 'Conet_db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    // De esta forma los datos se reciben en formato JSON
+    $json = file_get_contents('php://input');
+    $data = json_decode($json, true);
+
     // Los nombres en $_POST deben coincidir con el atributo 'name' del HTML
-    $nombre     = trim($_POST['nombre'] ?? '');
-    $apellido   = trim($_POST['apellido'] ?? '');
-    $email      = trim($_POST['email'] ?? '');
-    $pass       = $_POST['password'] ?? '';
-    $confirm    = $_POST['confirmPassword'] ?? '';
-    $fecha_nac  = !empty($_POST['fechaNacimiento']) ? $_POST['fechaNacimiento'] : null;
+    $nombre     = trim($data['nombre'] ?? '');
+    $apellido   = trim($data['apellido'] ?? '');
+    $email      = trim($data['email'] ?? '');
+    $pass       = $data['password'] ?? '';
+    $confirm    = $data['confirmPassword'] ?? '';
+    $fecha_nac  = !empty($data['fechaNacimiento']) ? $data['fechaNacimiento'] : null;
     $user_level = 'user';
+
 
     // 1. Validaciones básicas
     if (empty($nombre) || empty($apellido) || empty($email) || empty($pass)) {
