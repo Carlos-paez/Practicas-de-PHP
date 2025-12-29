@@ -1,0 +1,27 @@
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1005;
+}
+.modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal .modal-inner{
+  background: linear-gradient(135deg, #2196f3, #e91e63);
+  color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  opacity: 0;
+  transform: translateY(100px);
+  animation: anim-modal 0.5s cubic-bezier(.68, -0.55, .27, 1.55) forwards;
+}
+@keyframes anim-modal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

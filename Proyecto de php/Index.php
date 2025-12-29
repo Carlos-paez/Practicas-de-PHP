@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Practicas de PHP</title>
-    <link rel="stylesheet" href="styles/styles.css"> 
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/read.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
@@ -36,6 +37,23 @@
                 <input type="submit" value="Iniciar Sesión">
             </div>
         </form>
+
+
+        <div class="modal" id="modal5">
+          <div class="modal-inner">
+              <h2>Si es su primera vez en ingresar o no cuneta con usuario propio</h2>
+                <p>Dirigase a registro para crar un nuevo Usuario</p>
+                  <button class="close-modal" data-close="modal5">Cerrar</button>
+          </div>
+        </div>
+
+     <button id="open-modal5">Leer antes de entrar</button>
+     <script> var open = document.getElementById('open-modal5');
+     var modal5 = document.getElementById('modal5');
+     var close = modal5.querySelector('[data-close=modal5]');
+     open.addEventListener('click', ()=>modal5.classList.add('active'));
+     close.addEventListener('click', ()=>modal5.classList.remove('active'));
+     </script>
     </div>
 
     <?php if (isset($_GET['error'])): ?>
@@ -49,8 +67,12 @@
 <?php endif; ?>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script>
         AOS.init();
     </script>
+
+
+
 </body>
 </html>

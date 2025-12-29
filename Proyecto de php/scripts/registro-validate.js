@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Asegúrate de que esta ruta sea la correcta desde donde esté Registro.php
     fetch(
-      'http://localhost/programas/Practicas-de-PHP/Proyecto de php/Controlers/controler-Registro.php',
+      'http://localhost/programas/Proyecto%20de%20php/controlers/controler-Registro.php',
       {
         method: 'POST',
         body: JSON.stringify(Object.fromEntries(formData)),
