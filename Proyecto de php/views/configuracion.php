@@ -7,14 +7,15 @@ if (!isset($_SESSION['usuario_id'])) {
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Configuración - Optimized time</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="stylesheet" href="../styles/config.css"
-</head>
+    <link rel="stylesheet" href="styles/config.css" </head>
+
 <body>
     <div class="dashboard-container">
         <!-- Sidebar -->
@@ -85,13 +86,16 @@ if (!isset($_SESSION['usuario_id'])) {
                 <h2>Catálogos del Sistema</h2>
                 <p>Configura tipos de equipo, estados, roles y áreas permitidos en el inventario.</p>
                 <br>
-                <a href="catalogos/tipos_equipo.php" class="btn-save" style="background:#3498db; text-decoration:none; display:inline-block; margin-right:10px;">
+                <a href="catalogos/tipos_equipo.php" class="btn-save"
+                    style="background:#3498db; text-decoration:none; display:inline-block; margin-right:10px;">
                     <i class="fas fa-laptop"></i> Tipos de Equipo
                 </a>
-                <a href="catalogos/estados.php" class="btn-save" style="background:#3498db; text-decoration:none; display:inline-block; margin-right:10px;">
+                <a href="catalogos/estados.php" class="btn-save"
+                    style="background:#3498db; text-decoration:none; display:inline-block; margin-right:10px;">
                     <i class="fas fa-sync-alt"></i> Estados de Equipo
                 </a>
-                <a href="catalogos/roles.php" class="btn-save" style="background:#3498db; text-decoration:none; display:inline-block;">
+                <a href="catalogos/roles.php" class="btn-save"
+                    style="background:#3498db; text-decoration:none; display:inline-block;">
                     <i class="fas fa-user-shield"></i> Roles de Usuario
                 </a>
             </div>
@@ -106,12 +110,14 @@ if (!isset($_SESSION['usuario_id'])) {
                     </div>
                     <div class="form-group">
                         <label>
-                            <input type="checkbox" name="notificaciones" checked> Enviar notificaciones por correo al asignar equipo
+                            <input type="checkbox" name="notificaciones" checked> Enviar notificaciones por correo al
+                            asignar equipo
                         </label>
                     </div>
                     <div class="form-group">
                         <label>
-                            <input type="checkbox" name="requerir_razon" checked> Requerir razón al dar de baja un equipo
+                            <input type="checkbox" name="requerir_razon" checked> Requerir razón al dar de baja un
+                            equipo
                         </label>
                     </div>
                     <button type="submit" class="btn-save"><i class="fas fa-lock"></i> Actualizar Seguridad</button>
@@ -124,7 +130,8 @@ if (!isset($_SESSION['usuario_id'])) {
                 <p>Realiza una copia de seguridad de la base de datos o agenda una automatización.</p>
                 <div class="backup-section">
                     <h4>Acciones Disponibles</h4>
-                    <a href="#" class="btn-backup" onclick="alert('Función de respaldo programada en backend'); return false;">
+                    <a href="#" class="btn-backup"
+                        onclick="alert('Función de respaldo programada en backend'); return false;">
                         <i class="fas fa-download"></i> Descargar Respaldo Ahora
                     </a>
                     <p style="margin-top:15px; font-size:0.9rem; color:#7f8c8d;">
@@ -136,19 +143,20 @@ if (!isset($_SESSION['usuario_id'])) {
     </div>
 
     <script>
-        // Funcionalidad de pestañas
-        document.querySelectorAll('.tab-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                // Quitar clase active de todos
-                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    // Funcionalidad de pestañas
+    document.querySelectorAll('.tab-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            // Quitar clase active de todos
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
 
-                // Agregar clase active al botón y contenido
-                button.classList.add('active');
-                const tabId = button.getAttribute('data-tab');
-                document.getElementById(tabId).classList.add('active');
-            });
+            // Agregar clase active al botón y contenido
+            button.classList.add('active');
+            const tabId = button.getAttribute('data-tab');
+            document.getElementById(tabId).classList.add('active');
         });
+    });
     </script>
 </body>
+
 </html>

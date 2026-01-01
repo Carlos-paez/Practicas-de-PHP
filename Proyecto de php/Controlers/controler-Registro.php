@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: application/json');
 
-include_once 'Conet_db.php';
+include_once '../Models/Conet_db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 

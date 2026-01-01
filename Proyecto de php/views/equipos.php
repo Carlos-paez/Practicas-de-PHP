@@ -7,14 +7,16 @@ if (!isset($_SESSION['usuario_id'])) {
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Equipos - Optimized time</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="stylesheet" href="../styles/Pages.css">
+    <link rel="stylesheet" href="styles/Pages.css">
 </head>
+
 <body>
     <div class="dashboard-container">
         <aside class="sidebar">
@@ -54,11 +56,28 @@ if (!isset($_SESSION['usuario_id'])) {
                 </thead>
                 <tbody>
                     <!-- Ejemplo de datos (reemplazar con PHP/BD) -->
-                    <tr><td>EQ-001</td><td>Laptop Dell</td><td>Portátil</td><td>Dell</td><td>Latitude 5420</td><td>Disponible</td><td><a href="#">Editar</a> | <a href="#" style="color:#e74c3c;">Eliminar</a></td></tr>
-                    <tr><td>EQ-002</td><td>Monitor HP</td><td>Periférico</td><td>HP</td><td>Z24n</td><td>Asignado</td><td><a href="#">Editar</a> | <a href="#" style="color:#e74c3c;">Eliminar</a></td></tr>
+                    <tr>
+                        <td>EQ-001</td>
+                        <td>Laptop Dell</td>
+                        <td>Portátil</td>
+                        <td>Dell</td>
+                        <td>Latitude 5420</td>
+                        <td>Disponible</td>
+                        <td><a href="#">Editar</a> | <a href="#" style="color:#e74c3c;">Eliminar</a></td>
+                    </tr>
+                    <tr>
+                        <td>EQ-002</td>
+                        <td>Monitor HP</td>
+                        <td>Periférico</td>
+                        <td>HP</td>
+                        <td>Z24n</td>
+                        <td>Asignado</td>
+                        <td><a href="#">Editar</a> | <a href="#" style="color:#e74c3c;">Eliminar</a></td>
+                    </tr>
                 </tbody>
             </table>
         </main>
     </div>
 </body>
+
 </html>

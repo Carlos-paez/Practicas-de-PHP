@@ -7,14 +7,15 @@ if (!isset($_SESSION['usuario_id'])) {
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard - Optimized time</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="stylesheet" href="../styles/main.css"
-</head>
+    <link rel="stylesheet" href="styles/main.css" </head>
+
 <body>
     <div class="dashboard-container">
         <!-- Sidebar -->
@@ -34,7 +35,7 @@ if (!isset($_SESSION['usuario_id'])) {
         <!-- Main Content -->
         <main class="main-content">
             <div class="header">
-                <h1>Dashboard del Sistema de Inventario - Área de TI</h1>
+                <h1>Dashboard - Optimized time</h1>
                 <div class="user-info">
                     <span>¡Hola, <?php echo htmlspecialchars($_SESSION['usuario_nombre']); ?>!</span>
                     <a href="../index.php" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
@@ -70,7 +71,8 @@ if (!isset($_SESSION['usuario_id'])) {
                 <h2>Acciones Rápidas</h2>
                 <div class="action-buttons">
                     <a href="equipos.php?accion=nuevo" class="action-btn"><i class="fas fa-plus"></i> Nuevo Equipo</a>
-                    <a href="asignaciones.php?accion=nueva" class="action-btn"><i class="fas fa-plus-circle"></i> Nueva Asignación</a>
+                    <a href="asignaciones.php?accion=nueva" class="action-btn"><i class="fas fa-plus-circle"></i> Nueva
+                        Asignación</a>
                     <a href="movimientos.php" class="action-btn"><i class="fas fa-history"></i> Ver Historial</a>
                     <a href="reportes.php" class="action-btn"><i class="fas fa-file-export"></i> Generar Reporte</a>
                 </div>
@@ -78,4 +80,5 @@ if (!isset($_SESSION['usuario_id'])) {
         </main>
     </div>
 </body>
+
 </html>
