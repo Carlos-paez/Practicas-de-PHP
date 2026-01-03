@@ -14,13 +14,14 @@ if (!isset($_SESSION['usuario_id'])) {
     <title>Dashboard - Optimized time</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="stylesheet" href="styles/main.css" </head>
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="icon" href="assets/favicon.ico" type="image/ico">
 
 <body>
     <div class="dashboard-container">
         <!-- Sidebar -->
         <aside class="sidebar">
-            <div class="logo">Inventario TI</div>
+            <div class="logo">Optimized time</div>
             <ul class="nav-links">
                 <li><a href="dashboard.php" class="active"><i class="fas fa-home"></i> Dashboard</a></li>
                 <li><a href="equipos.php"><i class="fas fa-laptop"></i> Equipos</a></li>
